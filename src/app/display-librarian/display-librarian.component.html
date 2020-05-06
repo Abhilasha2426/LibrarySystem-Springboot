@@ -1,0 +1,32 @@
+  <div style="background:gainsboro">
+  <div class="card  text-black">
+    <div class="card-img-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="container ">
+              <table class="table table-bordered mt-2 table-hover " style="border-style: solid; border-width: 1px;">
+                <thead>
+                  <tr class="text-center text-dark">
+                    <th> ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let librarian of librarians" class="text-center text-info">
+                    <td>{{librarian.id}}</td>
+                    <td>{{librarian.name}}</td>
+                    <td>{{librarian.email}}</td>
+                    <td><button class="btn btn-danger" (click)="deleteLibrarian(librarian)"><i class="fas fa-trash-alt"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

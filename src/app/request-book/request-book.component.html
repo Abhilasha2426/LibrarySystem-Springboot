@@ -1,0 +1,74 @@
+<div class="jumbotron">
+  
+<div class="card card-body col-md-8 offset-md-2 mt-4 mb-4" >
+<div class="card1 text-center text-light" ><h1 style="text-align: center; background: rgb(88, 77, 77); ">SEARCH BOOK</h1> </div>
+  <div>
+    <form #requestForm="ngForm" (ngSubmit)="searchBook(requestForm)">
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label>Book Name</label>
+            <input name="bookName" class="form-control" type="text" #bookName="ngModel" ngModel required minlength="3"
+              placeholder="Enter Book Name">
+            <div *ngIf="bookName.invalid && bookName.touched">
+              <p *ngIf="bookName.errors.required" class="text-danger">
+                *This field is mandatory
+                <p *ngIf="bookName.errors.minlength" class="text-danger">
+                  *This field accepts minimum 3 characters
+            </div>
+          </div>
+          <br><br><br><br><br><br>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label>Author Name</label>
+            <input name="author1" class="form-control" type="text" required minlength="3" #author1="ngModel" ngModel
+              placeholder="Enter Author1 Name ">
+            <div *ngIf="author1.invalid && author1.touched">
+              <p *ngIf="author1.errors.required" class="text-danger">
+                *This field is mandatory
+                <p *ngIf="author1.errors.minlength" class="text-danger">
+                  *This field accepts minimum 3 characters
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="col-sm mt-4">
+          <div class="form-group">
+            <button type="submit" [disabled]="requestForm.invalid"
+              class="btn btn-block btn-info from-control text-light"><i class="fas fa-search-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="container " *ngIf="books">
+  <table class="table table-bordered mt-2 table-hover text-light bg-dark table-striped">
+    <thead>
+      <tr class="text-center" >
+        <th>Book ID</th>
+        <th>Book Name</th>
+        <th>Author1</th>
+        <th>Author2</th>
+        <th>Publisher</th>
+        <th>Year Of Publication</th>
+        <th>Request operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books" class="text-light" style="background-color: rgb(111, 143, 201);">
+        <td>{{book.bookId}}</td>
+        <td>{{book.bookName}}</td>
+        <td>{{book.author1}}</td>
+        <td>{{book.author2}}</td>
+        <td>{{book.publisher}}</td>
+        <td>{{book.yearOfPublication}}</td>
+        <td><button type="button" class="btn btn-dark btn-block " (click)="requestBook(book)">Request
+            Book</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

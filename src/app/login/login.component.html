@@ -1,0 +1,57 @@
+  <div class="jumbotron">
+   <div class="card" style="width: 300px; margin: auto; background-color: antiquewhite;"> 
+    <div class="card-header bg-dark text-white">
+      <h4 class="text-uppercase text-center">Login</h4>
+    </div>
+    <div class="card-body">
+       <div class="row">
+
+        <div class="col-sm-12 col-md-12">
+          <form action="" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" method="POST" role="form">
+
+            <div class="form-group mt-2">
+              <label for="id">User ID</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+                <input type="number" name="id" required placeholder="Enter Your ID" class="form-control" #id="ngModel"
+                  ngModel>
+                <div *ngIf="id.invalid && id.touched">
+                  <p *ngIf="id.errors.required" class="text-danger">*This field is mandatory
+                    <p *ngIf="id.errors.minlength" class="text-danger">*This field accepts minimum
+                      3 characters
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mt-2">
+              <label for="password">Password</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+                <input type="password" name="password" required minlength="8" placeholder="Enter Password"
+                  class="form-control" #password="ngModel" ngModel>
+                <div *ngIf="password.invalid && password.touched">
+                  <p *ngIf="password.errors.required" class="text-danger">*This field is mandatory
+                    <p *ngIf="password.errors.minlength" class="text-danger">*This field accepts minimum
+                      8 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" [disabled]="loginForm.invalid"
+                class="btn btn-outline-primary rounded-0 float-right"><i class="fas fa-sign-in-alt"></i></button>
+            </div>
+          </form>
+        </div>
+       </div>
+      </div>
+      </div>
+      </div>
+      

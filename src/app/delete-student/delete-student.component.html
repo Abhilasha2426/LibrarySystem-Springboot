@@ -1,0 +1,77 @@
+<div class="jumbotron">
+ 
+    <div class="card" style="width: 600px; margin: auto;">
+      <div class="card-header bg-dark text-white">
+        <h4 class="text-uppercase text-center">Student Info</h4>
+      </div>
+      <div class="card-body" style="background-color: rgb(245, 134, 130);">
+        <div class="row">
+
+          <div class="col-sm-3 col-md-9 col-xs-12" >
+            <form #deleteStuduent="ngForm" (ngSubmit)="getStudentInfo(deleteStuduent)" method="GET">
+
+              <div class="form-group mt-2">
+                <label for="name">Id</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" type="number" name="id" #id="ngModel" ngModel required
+                    placeholder="Enter Student Id ">
+                  <div *ngIf="id.invalid && id.touched">
+                    <p *ngIf="id.errors.required" class="text-danger">*This field is mandatory
+                      <p *ngIf="id.errors.minlength" class="text-danger">*This field accepts minimum
+                        3 characters
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" [disabled]="deleteStuduent.invalid"
+                  class="btn btn-outline-primary rounded-0 float-right"><i class="fas fa-info"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <br>
+        <!-- INFO -->
+        <table class="table table-bordered bg-dark text-light" *ngIf="studentData" >
+          <thead class="thead-grey">
+            <tr>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Student Email</th>
+              <th>Student Password</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{studentData.id}}</td>
+              <td>{{studentData.name}}</td>
+              <td>{{studentData.email}}</td>
+              <td>{{studentData.password}}</td>
+              <td>
+                  <button type="button" (click)="deleteStudent(studentData.id)" class="btn btn-block btn-danger float-right"><i
+                    class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="card card-body col-md-4 offset-md-4 text-light" style="background-color: rgb(134, 124, 134);" *ngIf="studentData">
+          Student ID : <p>{{studentData.id}}</p>
+          Student Name: <p>{{studentData.name}}</p>
+          Email : <p>{{studentData.email}}</p>
+          Password: <p>{{studentData.password}}</p>
+          <div>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
+</div> 
+

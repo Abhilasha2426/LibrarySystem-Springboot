@@ -1,0 +1,38 @@
+<div style="background:gainsboro">
+  <div class="card  text-black">
+    <div class="card-img-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="container ">
+              <table class="table table-bordered mt-2 table-hover " style="border-style: solid; border-width: 1px;">
+                <thead>
+                  <tr class="text-center text-dark">
+                    <th>Book ID</th>
+                    <th>Student ID</th>
+                    <th>Transaction ID</th>
+                    <th>Registration ID</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                    <!-- <th>Fine</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let issuedBook of issuedBooks" class="text-center text-info">
+                    <td>{{issuedBook.bookId}}</td>
+                    <td>{{issuedBook.id}}</td>
+                    <td>{{issuedBook.transactionId}}</td>
+                    <td>{{issuedBook.registrationId}}</td>
+                    <td>{{issuedBook.issueDate}}</td>
+                    <td>{{issuedBook.returnDate}}</td>
+                    <!-- <td>{{issuedBook.fine}}</td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

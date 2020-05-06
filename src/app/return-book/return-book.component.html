@@ -1,0 +1,85 @@
+<div >
+  <div class="container py-5" style="background:gainsboro">
+    <div class="card" style="width: 600px; margin: auto;">
+      <div class="card-header bg-primary text-white">
+        <h4 class="text-uppercase text-center">Return Book </h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-sm-6 col-md-6 col-xs-12">
+            <form #bookInfo="ngForm" (ngSubmit)="getBookInfo(bookInfo)" method="GET">
+
+              <div class="form-group mt-2">
+                <label for="id">Id</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" type="number" name="id" #id="ngModel" ngModel required
+                    placeholder="Enter Student Id ">
+                  <div *ngIf="id.invalid && id.touched">
+                    <p *ngIf="id.errors.required" class="text-danger">*This field is mandatory
+                      <p *ngIf="id.errors.minlength" class="text-danger">*This field accepts
+                        minimum
+                        3 characters
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" [disabled]="bookInfo.invalid"
+                  class="btn btn-outline-primary rounded-0 float-right"><i class="fas fa-undo"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+        <!-- INFO -->
+        <table class="table table-bordered"  *ngIf="bookData" >
+          <thead class="thead-grey">
+            <tr>
+              <th>Student ID</th>
+              <th>Book ID</th>
+              <th>Transaction ID</th>
+              <th>Registration ID</th>
+              <th>Issued Date</th>
+              <th>Return Date</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{bookData.id}}</td>
+              <td>{{bookData.bookId}}</td>
+              <td>{{bookData.transactionId}}</td>
+              <td>{{bookData.registrationId}}</td>
+              <td>{{bookData.issueDate}}</td>
+              <td>{{bookData.returnDate}}</td>
+              
+              <td>
+                <button type="button" (click)="returnBook(bookData.id)" class="btn btn-block btn-danger float-right"><i class="fas fa-undo"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- <div class="card card-body col-md-4 offset-md-4" *ngIf="bookData">
+          Student ID : <p>{{bookData.id}}</p>
+          Book ID: <p>{{bookData.bookId}}</p>
+          Transaction ID : <p>{{bookData.transactionId}}</p>
+          Registration ID: <p>{{bookData.registrationId}}</p>
+          Issued Date: <p>{{bookData.issueDate}}</p>
+          Return Date: <p>{{bookData.returnDate}}</p>
+          Fine: <p>{{bookData.fine}}</p>
+          <div>
+            <button type="button" (click)="returnBook(bookData.id)" class="btn btn-block btn-danger float-right"><i class="fas fa-undo"></i>
+            </button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

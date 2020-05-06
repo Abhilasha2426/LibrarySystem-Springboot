@@ -1,0 +1,114 @@
+<div class="jumbotron">
+
+        <div class="card" style="width: 400px; margin: auto; ">
+          <div class="card-header bg-dark text-white">
+            <h4 class="text-uppercase text-center">Add Book</h4>
+          </div>
+          <div class="card-body">
+            <!-- <div class="row"> -->
+      
+               <div class="col-md-12 col-xs-12 ">
+                    <form action="" #addBookForm="ngForm" (ngSubmit)="addBook(addBookForm)" method="POST"
+                    role="form">
+      
+                  <div class="form-group mt-2">
+                        <label for="bookName">Book Name</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fas fa-book"></i>
+                        </span>
+                      </div>
+                      <input type="text" name="bookName" required minlength="3" placeholder="Enter BookName"
+                      class="form-control" #bookName="ngModel" ngModel>
+                      <div *ngIf="bookName.invalid && bookName.touched">
+                        <p *ngIf="bookName.errors.required" class="text-danger">*This field is mandatory
+                          <p *ngIf="bookName.errors.minlength" class="text-danger">*This field accepts minimum
+                            3 characters
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="form-group mt-2">
+                        <label for="author1">Author1</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fa fa-user"></i>
+                        </span>
+                      </div>
+                      <input type="text" name="author1" required minlength="3"
+                                    placeholder="Enter First Author" class="form-control" #author1="ngModel" ngModel>
+                      <div *ngIf="author1.invalid && author1.touched">
+                        <p *ngIf="author1.errors.required" class="text-danger">*This field is mandatory
+                          <p *ngIf="author1.errors.minlength" class="text-danger">*This field accepts
+                            minimum 3 characters
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="form-group mt-2">
+                        <label for="author2">Author2</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fa fa-user"></i>
+                        </span>
+                      </div>
+                      <input type="text" name="author2" required minlength="3"
+                      placeholder="Enter Second Author" class="form-control" #author2="ngModel" ngModel>
+                      <div *ngIf="author2.invalid && author2.touched">
+                        <p *ngIf="author2.errors.required" class="text-danger">*This field is mandatory
+                          <p *ngIf="author2.errors.minlength" class="text-danger">*This field accepts
+                            minimum 3 characters
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group mt-2">
+                        <label for="publisher">Publisher</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fa fa-user"></i>
+                        </span>
+                      </div>
+                      <input type="text" name="publisher" required minlength="4" placeholder="Enter Publisher"
+                                    class="form-control" #publisher="ngModel" ngModel>
+                      <div *ngIf="publisher.invalid && publisher.touched">
+                        <p *ngIf="publisher.errors.required" class="text-danger">*This field is mandatory
+                          <p *ngIf="publisher.errors.minlength" class="text-danger">*This field accepts
+                            minimum 3 characters
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group mt-2">
+                        <label for="yearOfPublication">Year Of Publication</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="fa fa-user"></i>
+                        </span>
+                      </div>
+                      <input type="date" name="yearOfPublication" required minlength="8"
+                      placeholder="Enter Year Of Publication" class="form-control"
+                      #yearOfPublication="ngModel" ngModel>
+                      <div *ngIf="yearOfPublication.invalid && yearOfPublication.touched">
+                        <p *ngIf="yearOfPublication.errors.required" class="text-danger">*This field is mandatory
+                          <p *ngIf="yearOfPublication.errors.minlength" class="text-danger">*This field accepts
+                            minimum 3 characters
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <button type="submit" [disabled]="addBookForm.invalid"
+                      class="btn btn-outline-primary rounded-0 float-right"><i class="fas fa-plus-square"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            </div>

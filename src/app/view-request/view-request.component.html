@@ -1,0 +1,38 @@
+<div class="jumbotron">
+<div style="background:gainsboro">
+  <div class="card  text-black">
+    <div class="card-img-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="container ">
+              <table class="table table-bordered mt-2 table-hover bg-dark  " style="border-style: solid; border-width: 1px;">
+                <thead>
+                  <tr class="text-center text-light">
+                    <th>Student ID</th>
+                    <th>Book ID</th>
+                    <th>Registration ID</th>
+                    <th>Registration Date</th>
+                    <th>Accept</th>
+                    <th>Reject</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let request of requests" class="text-center text-light" style="background-color: rgb(211, 112, 150)">
+                    <td>{{request.id}}</td>
+                    <td>{{request.bookId}}</td>
+                    <td>{{request.registrationId}}</td>
+                    <td>{{request.registrationDate}}</td>
+                    <td><button class="btn btn-success" (click)="acceptRequest(request)"><i class="fas fa-check"></i></button></td>
+                    <td><button class="btn btn-danger" (click)="denyRequest(request)"><i class="fas fa-times"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

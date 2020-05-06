@@ -1,0 +1,10 @@
+.jumbotron{
+    background-image: url("https://cdn.pixabay.com/photo/2013/11/22/17/25/wooden-215877_1280.jpg");
+    height: 40pc;
+    width:  70pc;
+    background-size: cover;
+}
+
+.card{
+    background-image: url("https://cdn.pixabay.com/photo/2014/01/23/21/33/pink-250774_1280.jpg");
+}
